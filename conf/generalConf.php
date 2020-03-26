@@ -8,7 +8,7 @@
 // echo $_SERVER['REMOTE_ADDR']."<br>";
 // die("Die ici ==> ".$_SERVER['PHP_SELF']); /* */
 // Mode test - actif 0-1
-define('MODE_TEST', 0);
+define('MODE_TEST', 1);
 // Liste des serveurs de dev
 define('LISTE_SERVEUR_DE_DEV', array("192.168.1.12", "121.168.1.23", "121.168.1.13",));
 // Liste des serveurs de prod
@@ -87,6 +87,9 @@ if ($_SERVER['SERVER_NAME'] == "gestock" or $_SERVER['REMOTE_ADDR'] == "::1") {
     // Nom des cookies
     define('COOKIE_RESTER_CONNECTE', "yaya");
     define('COOKIE_HTTPS_ONLY', FALSE);
+
+
+    // 
 
     // #############################################################################
     // SI ERREUR ###################################################################

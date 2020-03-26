@@ -45,6 +45,49 @@ class Controllers
         return $returnText;
     }
 
+    static function isConnected()
+    {
+        if (isset($_SESSION["idUser"]) && !empty($_SESSION['idUser'])) {
+            return true;
+        } else {
+            return false;
+        }
+
+        //peut aussi s'écrire ainsi :
+        // return (isset($_SESSION["idUser"]) && !empty($_SESSION['idUser'])) ? true : false;
+    }
+    static function verifUserIfExist($email, $pwd)
+    {
+        $param = "?ctrl=getUsers";
+        $resultGetCurl = self::getCurlRest($param);
+        $resultGetCurl = json_decode($resultGetCurl);
+        var_dump($resultGetCurl);
+        die();
+
+        if ($resultGetCurl->status == "failed") {
+            die("Une erreur est survenue ! Veuillez contacter le support technique!");
+        } elseif ($resultGetCurl->status == "success") {
+            foreach ($resultGetCurl->result as $user) {
+                if ($email == $user->email && $pwd == $user->mot_de_passe) {
+                    $_SESSION['idUser'] = $user->id;
+                    $_SESSION["nameUser"] = $user->prenom;
+                    $_SESSION["lastNameUser"] = $user->nom;
+                    $_SESSION["emailUser"] = $user->email;
+                    $_SESSION["typeUser"] = $user->type;
+                    return true;
+                }
+            }
+            return false;
+            // echo "<pre>";
+            // // var_dump($resultGetCurl->result);
+            // echo "</pre>";
+            // // echo $resultGetCurl->result->email;
+        } else {
+            die("Erreur critique!");
+        }
+    }
+
+
     /**
      * Call curl on API in REST
      * @param int $param => params for call api
@@ -54,6 +97,7 @@ class Controllers
     {
         // Curl init
         $curl = curl_init();
+
         // Curl config
         curl_setopt($curl, CURLOPT_URL, URL_CURL_API_REST . $param);
         curl_setopt($curl, CURLOPT_FAILONERROR, true);

@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-md col-up-to-md-12 flex-column bg-light p-0">
+<nav class="navbar navbar-expand-md col-12 col-md-auto flex-column bg-light p-0">
     <div id="sideMenu" class="collapse navbar-collapse flex-column justify-content-start py-2">
         <div class="w-100 px-1 border-bottom">
-            <img src="C:./gestock/views/asset/gastIcon.jpg" class="img-thumbnail rounded mr-1 float-left" height="60" width="60" alt="Avatar de l'utilisateur">
+            <img src="http://gestock/component/img/favicon/gastIcon.jpg" class="img-thumbnail rounded mr-1 float-left" height="60" width="60" alt="Avatar de l'utilisateur">
             <p><b>admin</b></p>
             <a class="mr-2 text-secondary" href="#">Profil</a>
-            <p class="d-inline-block text-secondary"><i class="fas fa-lock"></i> Déconnexion</p>
+            <a href="./index.php?signOut=true" class="d-inline-block text-secondary"><i class="fas fa-lock"></i> Déconnexion</a>
         </div>
         <div class="d-flex flex-column mb-auto">
             <div class="text-center">
