@@ -81,7 +81,7 @@ class Controllers
             "ctrl" => "postAddUser",
             "datas" => $user,
         );
-        $postResult = json_decode(Controllers::postCurlRest($param));
+        return  $postResult = json_decode(Controllers::postCurlRest($param));
         // var_dump($user);
         // var_dump($postResult);
         // return json_decode(Controllers::postCurlRest("?ctrl=postAddUser"));
@@ -96,6 +96,7 @@ class Controllers
     {
         // Curl init
         $curl = curl_init();
+       // var_dump($curl);
         // Curl config
         curl_setopt($curl, CURLOPT_URL, URL_CURL_API_REST . $param);
         curl_setopt($curl, CURLOPT_FAILONERROR, true);
