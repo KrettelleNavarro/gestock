@@ -22,7 +22,10 @@
 
   <script>
     $(document).ready(function() {
-      $('#example').DataTable();
+      $('#example').DataTable({
+        // "scrollY": 200,
+        // "scrollX": true
+    });
     });
   </script>
   </body>

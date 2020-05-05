@@ -6,6 +6,7 @@ a {
   text-decoration: none;
 }
 
+
 /* ------  header --------*/
 
 .btn-outline-blanc {
@@ -20,6 +21,7 @@ a {
 nav i:hover {
   color: grey;
 }
+
 /* -----   fin header ------- */
 
 /*   -----   main ------ */
@@ -92,3 +94,6 @@ footer p {
 }
 
 /* ----  fin footer ------*/
+#example_paginate a {
+  color: #343a40;
+  }
